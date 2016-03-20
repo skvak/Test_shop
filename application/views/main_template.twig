@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+{% block scripts %}
+
+  <title>{{ title }}{{ goods.0.cat_name }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{base_url()}}assets/css/bootstrap.min.css">
+  <script src="{{base_url()}}assets/js/jquery-1.11.3.js"></script>
+  <script src="{{base_url()}}assets/js/bootstrap.min.js"></script>
+  <style>
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    .jumbotron {
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .btn {
+      margin-left: 7%;
+    }
+    footer {
+    background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+{% endblock %}
+
+<body>
+
+{% block header %}
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Online Shop</h1>      
+    <p>"Ларёк"</p>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block menu %}
+
+<nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{{base_url()}}">Главная</a></li>
+        {% for cat in categories %}
+          <li><a href="{{base_url()}}main/category/{{cat.id}}">{{cat.cat_name}}</a></li>
+        {% endfor %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{base_url()}}main/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина  <span class="glyphicon glyphicon-menu-right"></span>  <span class="label label-default">5 товаров на сумму: 7999</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+{% block footer %}
+
+<footer class="container-fluid text-center">
+  <p>Online Shop "Ларёк" By Alexandr Kvak</p>  
+</footer>
+
+{% endblock %}
+</body>
+</html>
+

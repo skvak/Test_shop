@@ -1,0 +1,94 @@
+{% extends 'main_template.twig' %}
+
+{% block scripts %}
+{{parent()}}
+{% endblock %}
+
+{% block header %}
+{{parent()}}
+{% endblock %}
+
+{% block menu %}
+{{parent()}}
+{% endblock %}
+
+{% block content %}
+   
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
+      <form class="form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6" role="form" autocomplete>
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Имя</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control" name="focusedInput" type="text" required autofocus>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Фамилия</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control" name="focusedInput" type="text" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">E-mail</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control" name="focusedInput" type="email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Телефон</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control" name="focusedInput" type="tel" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Адрес доставки</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control" name="focusedInput" type="text" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Форма оплаты</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <select class="form-control" name="focusedInput" type="select" required>
+              <option value="1" disabled="" selected="selected"></option>
+              <option value="nal">Наличные</option>
+              <option value="beznal">Банковский перевод</option>
+              <option value="pb">Карта ПриватБанк</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label">Дополнительно</label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <textarea class="form-control" name="focusedInput" type="textarea" rows="4"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 col-md-4 col-lg-3 control-label"></label>
+          <div class="col-sm-10 col-md-8 col-lg-9">
+            <input class="form-control btn-primary" type="submit">
+          </div>
+        </div>
+      </form>
+      <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}

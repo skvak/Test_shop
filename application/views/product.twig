@@ -1,0 +1,56 @@
+{% extends 'main_template.twig' %}
+
+{% block scripts %}
+{{parent()}}
+{% endblock %}
+
+{% block header %}
+{{parent()}}
+{% endblock %}
+
+{% block menu %}
+{{parent()}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<h3>{{product.0.name}}</h3>    
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">{{product.0.name}}</div>
+        <div class="panel-body">
+          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="height: 200px; width: 200px;" alt="Image">
+          </div>
+          <div class="well well-lg col-xs-6 hidden-sm hidden-md hidden-lg">
+            <p>Цена: {{product.0.price}} грн.</p>
+            <input type="number" name="qty" min="1" value="1"><br><br>
+            <button type="button" class="btn btn-primary btn-block">В корзину</button>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <strong>Наименование:</strong><p>{{product.0.name}}</p>
+            <strong>Описание:</strong><p>{{product.0.description}}</p>
+            <strong>Дополнительно:</strong><p>{{product.0.additional}}</p>
+            <strong>Наличие:</strong><p>Есть в наличии</p>
+          </div>
+          <div class="well well-lg hidden-xs col-sm-4 col-md-4 col-lg-4">
+            <p>Цена: {{product.0.price}} грн.</p>
+            <input type="number" min="1" value="1"><br><br>
+            <button type="button" class="btn btn-primary btn-block">В корзину</button>
+          </div>
+         
+        </div>
+        <div class="panel-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}

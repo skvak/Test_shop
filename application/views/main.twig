@@ -1,0 +1,115 @@
+{% extends 'main_template.twig' %}
+
+{% block scripts %}
+{{parent()}}
+{% endblock %}
+
+{% block header %}
+{{parent()}}
+{% endblock %}
+
+{% block menu %}
+{{parent()}}
+{% endblock %}
+
+{% block content %}
+
+
+{% if specials %}
+  <div class="container">
+    <h3>Специальные предложения:</h3>    
+      <div class="row">
+      {% for spec in specials%}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">{{spec.name}}</div>
+            <div class="panel-body">
+              <div style="width:30%; float:left">
+                <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="width:100%" alt="Image">
+              </div>
+              <div style="width:70%; margin-left:35%; font-size: 13px;">
+                <p>Код товара: {{spec.id}}</p>
+                <p>Описание: {{spec.description}}</p>
+                <p>Дополнительно: {{spec.additional}}</p>
+                <p>Цена: {{spec.price}}</p>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <a href="{{base_url()}}main/product/{{spec.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
+              <button type="button" class="btn btn-primary">В корзину</button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}  
+      </div>
+  </div>
+  <br>
+{% endif %}
+
+{% if top %}
+  <div class="container">
+    <h3>Топ продаж:</h3>    
+      <div class="row">
+      {% for tp in top%}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">{{tp.name}}</div>
+            <div class="panel-body">
+              <div style="width:30%; float:left">
+                <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="width:100%" alt="Image">
+              </div>
+              <div style="width:70%; margin-left:35%; font-size: 13px;">
+                <p>Код товара: {{tp.id}}</p>
+                <p>Описание: {{tp.description}}</p>
+                <p>Дополнительно: {{tp.additional}}</p>
+                <p>Цена: {{tp.price}}</p>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <a href="{{base_url()}}main/product/{{tp.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
+              <button type="button" class="btn btn-primary">В корзину</button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}  
+      </div>
+  </div>
+{% endif %}
+
+{% if goods %}
+  <div class="container">
+    <h3>{{ goods.0.cat_name }}:</h3>    
+      <div class="row">
+      {% for product in goods%}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">{{product.name}}</div>
+            <div class="panel-body">
+              <div style="width:30%; float:left">
+                <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="width:100%" alt="Image">
+              </div>
+              <div style="width:70%; margin-left:35%; font-size: 13px;">
+                <p>Код товара: {{product.id}}</p>
+                <p>Описание: {{product.description}}</p>
+                <p>Дополнительно: {{product.additional}}</p>
+                <p>Цена: {{product.price}}</p>
+              </div>
+            </div>
+            <div class="panel-footer">
+              <a href="{{base_url()}}main/product/{{product.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
+              <button type="button" class="btn btn-primary">В корзину</button>
+            </div>
+          </div>
+        </div>
+      {% endfor %}  
+      </div>
+  </div>
+{% endif %}
+
+<br><br>
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}

@@ -1,0 +1,131 @@
+{% extends 'admin_template.twig' %}
+
+{% block scripts %}
+{{parent()}}
+{% endblock %}
+
+{% block header %}
+{{parent()}}
+{% endblock %}
+
+{% block menu %}
+{{parent()}}
+{% endblock %}
+
+{% block content %}
+   
+  <div class="container-fluid" style="margin-left: 1%;">
+    <div class="row">
+    {{ info }}
+
+    {{ form_open ('/admin/add_product') }}
+        <div class="form well" role="form" style="margin-right: 1%;">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label for="category">Категория:</label>
+                <select type="select" name="cat_id" class="form-control" required>
+                  <option value="" selected="" hidden=""></option>
+                  {% for cat in categories %}
+                    <option value="{{cat.id}}">{{cat.cat_name}}</option>
+                  {% endfor %}
+                </select> 
+              </div>
+
+              <div class="form-group">
+                <label for="description">Наименование:</label>
+                <input type="text" class="form-control" name="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea type="text" class="form-control" name="description" rows="3" required></textarea>
+              </div>
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label for="description">Цена:</label>
+                <input type="number" class="form-control" name="price" min="0" required>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Количество:</label>
+                <input type="number" class="form-control" name="qty" min="0" required>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Дополнительно:</label>
+                <textarea type="text" class="form-control" name="additional" rows="3" required></textarea>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+              <div class="form-group">
+                <label for="description">Фото:</label>
+                <input type="text" class="form-control" name="photo">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Спецпредложение:</label>
+                <select type="select" class="form-control" name="spec" required>
+                  <option value="1">Да</option>
+                  <option value="0" selected>Нет</option>
+                </select>
+              </div>
+              <br>
+              <br>
+              <button type="submit" class="btn-primary">Добавить</button>
+              <button type="reset" class="btn-primary">Очистить</button>
+            </div>  
+          </div> 
+        </div>
+      {{ form_close() }}
+
+      <h3>Товары:</h3>            
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Код</th>
+            <th>Категория</th>
+            <th>Наименование</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+            <th>Дополнительно</th>
+            <th>Фото</th>
+            <th>Спецпредл.</th>
+            <th>Продано</th>
+            <th>Действия</th>         
+          </tr>
+        </thead>
+        <tbody>
+          {% for prod in goods %}
+            <tr>
+              <td>{{prod.id}}</td>
+              <td>{{prod.cat_name}}</td>
+              <td>{{prod.name}}</td>
+              <td>{{prod.description}}</td>
+              <td>{{prod.price}}</td>
+              <td>{{prod.qty}}</td>
+              <td>{{prod.additional}}</td>
+              <td>{{prod.photo}}</td>
+              <td>{{prod.spec}}</td>
+              <td>{{prod.sold}}</td>
+              <td><a href="{{base_url()}}admin/delete/{{table}}/{{prod.id}}">Удалить</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table> 
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}

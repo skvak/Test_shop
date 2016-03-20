@@ -1,0 +1,80 @@
+{% extends 'main_template.twig' %}
+
+{% block scripts %}
+{{parent()}}
+{% endblock %}
+
+{% block header %}
+{{parent()}}
+{% endblock %}
+
+{% block menu %}
+{{parent()}}
+{% endblock %}
+
+{% block content %}
+   
+  <div class="container">
+    <div class="row">
+    <h3>Ваша корзина:</h3>            
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Код товара</th>
+          <th>Наименование</th>
+          <th>Количество</th>
+          <th>Цена, грн.</th>
+          <th>Сумма</th>
+          <th>Удалить</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>123</td>
+          <td>Планшет</td>
+          <td>1</td>
+          <td>3500</td>
+          <td>3500</td>
+          <td><a href="#">Удалить</a></td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>Планшет</td>
+          <td>1</td>
+          <td>3500</td>
+          <td>3500</td>
+          <td><a href="#">Удалить</a></td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>Планшет</td>
+          <td>1</td>
+          <td>3500</td>
+          <td>3500</td>
+          <td><a href="#">Удалить</a></td>
+        </tr>
+        <tr>
+          <td colspan="5" align="right"><strong>Общая сумма, грн.:</strong></td>
+          <td style="font-size: 18px;">10500</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="row">
+      <div class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+        <button type="button" class="btn btn-primary">Оформить заказ</button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+
+
+{% endblock %}
+
+{% block footer %}
+{{parent()}}
+{% endblock %}
