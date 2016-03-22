@@ -38,7 +38,7 @@ class Admin extends CI_Controller {
             $data['info'] = 'Ошибка записи в БД';
             $this->categories($data);
         }
-        $data['info'] = 'Катигория успешно добавлена в БД';
+        $data['info'] = 'Категория успешно добавлена в БД';
         $this->categories($data);
     }
 
