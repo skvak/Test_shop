@@ -108,9 +108,9 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
             <select class=\"form-control\" name=\"pay_meth\" type=\"select\" required>
               <option value=\"1\" disabled=\"\" selected=\"selected\"></option>
-              <option value=\"nal\">Наличные</option>
-              <option value=\"beznal\">Банковский перевод</option>
-              <option value=\"pb\">Карта ПриватБанк</option>
+              <option value=\"Наличные\">Наличные</option>
+              <option value=\"Безнал\">Банковский перевод</option>
+              <option value=\"Карта ПБ\">Карта ПриватБанк</option>
             </select>
           </div>
         </div>
@@ -229,9 +229,9 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
 /*             <select class="form-control" name="pay_meth" type="select" required>*/
 /*               <option value="1" disabled="" selected="selected"></option>*/
-/*               <option value="nal">Наличные</option>*/
-/*               <option value="beznal">Банковский перевод</option>*/
-/*               <option value="pb">Карта ПриватБанк</option>*/
+/*               <option value="Наличные">Наличные</option>*/
+/*               <option value="Безнал">Банковский перевод</option>*/
+/*               <option value="Карта ПБ">Карта ПриватБанк</option>*/
 /*             </select>*/
 /*           </div>*/
 /*         </div>*/

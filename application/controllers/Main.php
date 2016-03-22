@@ -11,8 +11,7 @@ class Main extends CI_Controller {
         $this->load->library('twig');
     }
 
-    //Start page
-    public function index($data = '')
+    public function index($data = '') //Главная страница
     {
         $data['title'] = 'Ларёк - микромагазин для больших покупок';
         $data['current_url'] = current_url();
@@ -26,7 +25,7 @@ class Main extends CI_Controller {
         echo $this->twig->render('main', $data);
     }
 
-    public function category($id)
+    public function category($id) //просмотр страницы категорий
     {
         $data['title'] = 'Ларёк - ';
         $data['current_url'] = current_url();
@@ -39,12 +38,12 @@ class Main extends CI_Controller {
         echo $this->twig->render('main', $data);
     }
 
-    public function product($id)
+    public function product($id) //просмотр страницы Товара
     {
         $data['title'] = 'Ларёк - Товар';
         $data['current_url'] = current_url();
         $data['categories'] = $this->admin_model->get('categories');
-        $data['product'] = $this->main_model->get_goods($id);
+        $data['product'] = $this->admin_model->get_goods($id);
 
         $cart = $this->cart->contents();
         $data['cart_summary'] = $this->_cart_summary($cart);
@@ -52,7 +51,7 @@ class Main extends CI_Controller {
         echo $this->twig->render('product', $data);
     }
 
-    public function cart()
+    public function cart() //просмотр корзины
     {
         $data['title'] = 'Ларёк - Корзина';
         $data['categories'] = $this->admin_model->get('categories');
@@ -64,7 +63,7 @@ class Main extends CI_Controller {
         echo $this->twig->render('shop_cart', $data);
     }
 
-    public function add_to_cart()
+    public function add_to_cart() //добавление товара в корзину
     {
         $data['title'] = 'Ларёк - Корзина';
         $data['categories'] = $this->admin_model->get('categories');
@@ -81,7 +80,7 @@ class Main extends CI_Controller {
         $this->product($id);
     }
 
-    public function remove_from_cart($rowid)
+    public function remove_from_cart($rowid) //удаление товара из корзины
     {
         if ($rowid==="all")
         {
@@ -100,7 +99,7 @@ class Main extends CI_Controller {
         $this->cart();
     }
 
-    private function _cart_summary($cart)
+    private function _cart_summary($cart) //подсчет количества товаров и суммы для отображения состояния корзины
     {
         $amt = 0;
         $sum = 0;
@@ -119,7 +118,7 @@ class Main extends CI_Controller {
         return $data;
     }
 
-    public function create_order()
+    public function create_order() //создание заказа
     {
         $data['title'] = 'Ларёк - Оформление заказа';
         $data['categories'] = $this->admin_model->get('categories');
@@ -130,7 +129,7 @@ class Main extends CI_Controller {
         echo $this->twig->render('create_order', $data);
     }
 
-    public function save_order()
+    public function save_order() //запись заказа в БД
     {
         $cart = $this->cart->contents();
         $data['cart_summary'] = $this->_cart_summary($cart);

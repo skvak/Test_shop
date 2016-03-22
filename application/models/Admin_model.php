@@ -1,11 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/**
- * Admin_model class.
- * 
- * @extends CI_Model
- */
 class Admin_model extends CI_Model {
 
 	/**
@@ -20,7 +15,7 @@ class Admin_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function get_orders()
+	public function get_orders() //получаем данные заказа из трех таблиц, и объединяем поле товаров в строку
 	{
 		$this->db->select('o.id, o.order_create, GROUP_CONCAT(g.name) AS prod, o.sum, c.name, c.surname, c.tel, c.email, c.address, c.additional, c.pay_meth, o.status');
 		$this->db->from('order as o');
@@ -33,7 +28,7 @@ class Admin_model extends CI_Model {
 		return $query->result_array();
 	} 
 
-	public function add($table, $data) 
+	public function add($table, $data) //добавляем данные в таблицу
 	{
 		if ($this->db->insert($table, $data)) 
 		{
@@ -43,7 +38,7 @@ class Admin_model extends CI_Model {
 		return FALSE;
 	}
 
-	public function get($table) 
+	public function get($table) //получаем все данные из таблицы
 	{
 		$this->db->from($table);
 		$query = $this->db->get();
@@ -51,7 +46,7 @@ class Admin_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function get_goods($id = '') 
+	public function get_goods($id = '') //получаем данные о товаре с определенным id
 	{
 		$this->db->select('g.id, c.cat_name, g.name, g.description, g.price, g.qty, g.additional, g.photo, g.spec, g.sold');
 		$this->db->from('goods as g');
@@ -64,7 +59,7 @@ class Admin_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	public function delete_data($id, $table)
+	public function delete_data($id, $table) //удаляем данные из таблицы
 	{
 		//delete data
 		$this->db->from($table);
@@ -74,7 +69,7 @@ class Admin_model extends CI_Model {
 		return TRUE;
 	}
 
-	public function change_status($id, $table)
+	public function change_status($id, $table) //меняем статус заказа
 	{
 		$data = array('status' => '1',);
 		$this->db->where('id', $id);

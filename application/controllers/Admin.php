@@ -9,8 +9,7 @@ class Admin extends CI_Controller {
         $this->load->library('twig');
     }
 
-    //Start page
-    public function index($data = '')
+    public function index($data = '') //Главная страница админ панели - информация о заказах
     {
         $data['title'] = 'Админ панель - Главная - Заказы';
         $data['orders'] = $this->admin_model->get_orders();
@@ -18,7 +17,7 @@ class Admin extends CI_Controller {
         echo $this->twig->render('admin_main', $data);
     }
 
-    public function categories($data = '')
+    public function categories($data = '') //просмотр и управление категориями товаров
     {
         $data['title'] = 'Админ панель - Категории';
         $data['table'] = 'categories';
@@ -28,7 +27,7 @@ class Admin extends CI_Controller {
         echo $this->twig->render('admin_categories', $data);
     }
 
-    public function add_category()
+    public function add_category() //добавление категории
     {
         $data['cat_name'] = $this->input->post('cat');
         $data['cat_desc'] = $this->input->post('description');
@@ -43,7 +42,7 @@ class Admin extends CI_Controller {
         $this->categories($data);
     }
 
-    public function goods($data = '')
+    public function goods($data = '') //просмотр и управление товарами
     {
         $data['title'] = 'Админ панель - Товары';
         $data['categories'] = $this->admin_model->get('categories');
@@ -53,7 +52,7 @@ class Admin extends CI_Controller {
         echo $this->twig->render('admin_goods', $data);
     }
 
-    public function add_product()
+    public function add_product() //добавление товара
     {
         $data['cat_id'] = $this->input->post('cat_id');
         $data['name'] = $this->input->post('name');
@@ -75,7 +74,7 @@ class Admin extends CI_Controller {
         $this->goods($data);   
     }
 
-    public function delete($table, $id)
+    public function delete($table, $id) //удаление товара, категории, заказа
     {
         if ($this->admin_model->delete_data($id, $table)) 
         {
@@ -92,23 +91,21 @@ class Admin extends CI_Controller {
         }
     }
 
-    public function order($data = '')
+    public function order($data = '') //просмотр заказов - переходит на Главную
     {
         $this->index($data);
     }
 
-    public function change_status($table, $id)
+    public function change_status($table, $id) //изменение статуса заказа
     {
         if ($this->admin_model->change_status($id, $table)) 
         {
-            // item delete ok
             $data['info'] = 'Статус заказа успешно изменен';
             $this->{$table}($data);    
         } 
         
         else 
         {
-            // item delete failed, this should never happen
             $data['info'] = 'Что-то пошло не так';
             $this->{$table}($data); 
         }

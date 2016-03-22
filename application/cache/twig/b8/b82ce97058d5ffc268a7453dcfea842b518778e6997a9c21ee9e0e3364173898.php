@@ -102,7 +102,14 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
         // line 35
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "additional", array()), "html", null, true);
         echo "</p>
-            <strong>Наличие:</strong><p>Есть в наличии</p>
+            <strong>Наличие:</strong><p>";
+        // line 36
+        if (($this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "qty", array()) > 0)) {
+            echo "Есть в наличии";
+        } else {
+            echo "Нет в наличии";
+        }
+        echo "</p>
           </div>
           <div class=\"well well-lg hidden-xs col-sm-4 col-md-4 col-lg-4\">
             <p>Цена: ";
@@ -129,10 +136,23 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
         // line 44
         echo form_hidden("price", $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "price", array()));
         echo "
-              <input type=\"number\" min=\"1\" value=\"1\" name=\"qty\"><br><br>
-              <input type=\"submit\" value=\"В корзину\" class=\"btn-primary btn-block\">
-            ";
-        // line 47
+              ";
+        // line 45
+        if (($this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "qty", array()) > 0)) {
+            // line 46
+            echo "                <input type=\"number\" min=\"1\" max=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "qty", array()), "html", null, true);
+            echo "\" value=\"1\" name=\"qty\"><br><br>
+                <input type=\"submit\" value=\"В корзину\" class=\"btn-primary btn-block\">
+                ";
+        } else {
+            // line 49
+            echo "                <input type=\"number\" value=\"0\" name=\"qty\" disabled=\"\"><br><br>
+                <input type=\"submit\" value=\"В корзину\" class=\"btn-primary btn-block\" disabled=\"\">
+              ";
+        }
+        // line 52
+        echo "            ";
         echo form_close();
         echo "
           </div>
@@ -148,10 +168,10 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 ";
     }
 
-    // line 60
+    // line 65
     public function block_footer($context, array $blocks = array())
     {
-        // line 61
+        // line 66
         $this->displayParentBlock("footer", $context, $blocks);
         echo "
 ";
@@ -169,7 +189,7 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 
     public function getDebugInfo()
     {
-        return array (  155 => 61,  152 => 60,  136 => 47,  130 => 44,  126 => 43,  122 => 42,  118 => 41,  114 => 40,  110 => 39,  103 => 35,  99 => 34,  95 => 33,  87 => 28,  81 => 25,  73 => 22,  66 => 18,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  175 => 66,  172 => 65,  155 => 52,  150 => 49,  143 => 46,  141 => 45,  137 => 44,  133 => 43,  129 => 42,  125 => 41,  121 => 40,  117 => 39,  107 => 36,  103 => 35,  99 => 34,  95 => 33,  87 => 28,  81 => 25,  73 => 22,  66 => 18,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main_template.twig' %}*/
@@ -207,7 +227,7 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 /*             <strong>Наименование:</strong><p>{{product.0.name}}</p>*/
 /*             <strong>Описание:</strong><p>{{product.0.description}}</p>*/
 /*             <strong>Дополнительно:</strong><p>{{product.0.additional}}</p>*/
-/*             <strong>Наличие:</strong><p>Есть в наличии</p>*/
+/*             <strong>Наличие:</strong><p>{% if product.0.qty > 0 %}{{'Есть в наличии'}}{% else %}{{'Нет в наличии'}}{% endif %}</p>*/
 /*           </div>*/
 /*           <div class="well well-lg hidden-xs col-sm-4 col-md-4 col-lg-4">*/
 /*             <p>Цена: {{product.0.price}} грн.</p>*/
@@ -216,8 +236,13 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 /*               {{ form_hidden ('id', product.0.id ) }}*/
 /*               {{ form_hidden ('name', product.0.name ) }}*/
 /*               {{ form_hidden ('price', product.0.price ) }}*/
-/*               <input type="number" min="1" value="1" name="qty"><br><br>*/
-/*               <input type="submit" value="В корзину" class="btn-primary btn-block">*/
+/*               {% if product.0.qty > 0 %}*/
+/*                 <input type="number" min="1" max="{{product.0.qty}}" value="1" name="qty"><br><br>*/
+/*                 <input type="submit" value="В корзину" class="btn-primary btn-block">*/
+/*                 {% else %}*/
+/*                 <input type="number" value="0" name="qty" disabled=""><br><br>*/
+/*                 <input type="submit" value="В корзину" class="btn-primary btn-block" disabled="">*/
+/*               {% endif %}*/
 /*             {{ form_close() }}*/
 /*           </div>*/
 /*          */
