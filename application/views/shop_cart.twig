@@ -29,44 +29,38 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>123</td>
-          <td>Планшет</td>
-          <td>1</td>
-          <td>3500</td>
-          <td>3500</td>
-          <td><a href="#">Удалить</a></td>
-        </tr>
-        <tr>
-          <td>123</td>
-          <td>Планшет</td>
-          <td>1</td>
-          <td>3500</td>
-          <td>3500</td>
-          <td><a href="#">Удалить</a></td>
-        </tr>
-        <tr>
-          <td>123</td>
-          <td>Планшет</td>
-          <td>1</td>
-          <td>3500</td>
-          <td>3500</td>
-          <td><a href="#">Удалить</a></td>
-        </tr>
-        <tr>
-          <td colspan="5" align="right"><strong>Общая сумма, грн.:</strong></td>
-          <td style="font-size: 18px;">10500</td>
-        </tr>
+      {% if cart %}
+        {% for product in cart %}
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.qty }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.subtotal }}</td>
+            <td><a href="{{base_url()}}main/remove_from_cart/{{product.rowid}}">Удалить</a></td>
+          </tr>
+        {% endfor %}
+          <tr>
+            <td colspan="5" align="right"><strong>Общая сумма, грн.: </strong></td>
+            <td style="font-size: 18px;">{{ cart_summary.sum }}</td>
+          </tr>
+        {% else %}
+          <tr>
+            <td>Корзина пуста</td>
+          </tr>
+      {% endif %}
       </tbody>
     </table>
     </div>
-    <div class="row">
-      <div class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+    {% if cart %}
+      <div class="row">
+        <div class="col-xs-8 col-sm-8 col-md-10 col-lg-10">
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
+          <a href="{{base_url()}}main/create_order" class="btn btn-primary" role="button" type="button">Оформить заказ</a>
+        </div>
       </div>
-      <div class="col-xs-4 col-sm-4 col-md-2 col-lg-2">
-        <button type="button" class="btn btn-primary">Оформить заказ</button>
-      </div>
-    </div>
+    {% endif %}
   </div>
   <br>
   <br>

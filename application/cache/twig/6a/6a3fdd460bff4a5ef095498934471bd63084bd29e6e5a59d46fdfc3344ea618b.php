@@ -63,46 +63,50 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
   <div class=\"container\">
     <div class=\"row\">
       <div class=\"col-xs-1 col-sm-2 col-md-3 col-lg-3\"></div>
-      <form class=\"form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6\" role=\"form\" autocomplete>
+      ";
+        // line 20
+        echo form_open("/main/save_order");
+        echo "
+      <div class=\"form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6\" role=\"form\" autocomplete>
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Имя</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <input class=\"form-control\" name=\"focusedInput\" type=\"text\" required autofocus>
+            <input class=\"form-control\" name=\"name\" type=\"text\" required autofocus>
           </div>
         </div>
   
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Фамилия</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <input class=\"form-control\" name=\"focusedInput\" type=\"text\" required>
+            <input class=\"form-control\" name=\"surname\" type=\"text\" required>
           </div>
         </div>
 
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">E-mail</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <input class=\"form-control\" name=\"focusedInput\" type=\"email\" required>
+            <input class=\"form-control\" name=\"email\" type=\"email\" required>
           </div>
         </div>
 
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Телефон</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <input class=\"form-control\" name=\"focusedInput\" type=\"tel\" required>
+            <input class=\"form-control\" name=\"tel\" type=\"tel\" required>
           </div>
         </div>
 
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Адрес доставки</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <input class=\"form-control\" name=\"focusedInput\" type=\"text\" required>
+            <input class=\"form-control\" name=\"address\" type=\"text\" required>
           </div>
         </div>
 
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Форма оплаты</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <select class=\"form-control\" name=\"focusedInput\" type=\"select\" required>
+            <select class=\"form-control\" name=\"pay_meth\" type=\"select\" required>
               <option value=\"1\" disabled=\"\" selected=\"selected\"></option>
               <option value=\"nal\">Наличные</option>
               <option value=\"beznal\">Банковский перевод</option>
@@ -114,7 +118,7 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
         <div class=\"form-group\">
           <label class=\"col-sm-2 col-md-4 col-lg-3 control-label\">Дополнительно</label>
           <div class=\"col-sm-10 col-md-8 col-lg-9\">
-            <textarea class=\"form-control\" name=\"focusedInput\" type=\"textarea\" rows=\"4\"></textarea>
+            <textarea class=\"form-control\" name=\"additional\" type=\"textarea\" rows=\"4\"></textarea>
           </div>
         </div>
 
@@ -124,7 +128,11 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
             <input class=\"form-control btn-primary\" type=\"submit\">
           </div>
         </div>
-      </form>
+      </div>
+      ";
+        // line 83
+        echo form_close();
+        echo "
       <div class=\"col-xs-1 col-sm-2 col-md-3 col-lg-3\"></div>
     </div>
   </div>
@@ -136,10 +144,10 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 ";
     }
 
-    // line 92
+    // line 94
     public function block_footer($context, array $blocks = array())
     {
-        // line 93
+        // line 95
         $this->displayParentBlock("footer", $context, $blocks);
         echo "
 ";
@@ -157,7 +165,7 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 
     public function getDebugInfo()
     {
-        return array (  143 => 93,  140 => 92,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  151 => 95,  148 => 94,  134 => 83,  68 => 20,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main_template.twig' %}*/
@@ -179,46 +187,47 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 /*   <div class="container">*/
 /*     <div class="row">*/
 /*       <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>*/
-/*       <form class="form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6" role="form" autocomplete>*/
+/*       {{ form_open ('/main/save_order') }}*/
+/*       <div class="form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6" role="form" autocomplete>*/
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Имя</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <input class="form-control" name="focusedInput" type="text" required autofocus>*/
+/*             <input class="form-control" name="name" type="text" required autofocus>*/
 /*           </div>*/
 /*         </div>*/
 /*   */
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Фамилия</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <input class="form-control" name="focusedInput" type="text" required>*/
+/*             <input class="form-control" name="surname" type="text" required>*/
 /*           </div>*/
 /*         </div>*/
 /* */
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">E-mail</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <input class="form-control" name="focusedInput" type="email" required>*/
+/*             <input class="form-control" name="email" type="email" required>*/
 /*           </div>*/
 /*         </div>*/
 /* */
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Телефон</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <input class="form-control" name="focusedInput" type="tel" required>*/
+/*             <input class="form-control" name="tel" type="tel" required>*/
 /*           </div>*/
 /*         </div>*/
 /* */
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Адрес доставки</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <input class="form-control" name="focusedInput" type="text" required>*/
+/*             <input class="form-control" name="address" type="text" required>*/
 /*           </div>*/
 /*         </div>*/
 /* */
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Форма оплаты</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <select class="form-control" name="focusedInput" type="select" required>*/
+/*             <select class="form-control" name="pay_meth" type="select" required>*/
 /*               <option value="1" disabled="" selected="selected"></option>*/
 /*               <option value="nal">Наличные</option>*/
 /*               <option value="beznal">Банковский перевод</option>*/
@@ -230,7 +239,7 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 /*         <div class="form-group">*/
 /*           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Дополнительно</label>*/
 /*           <div class="col-sm-10 col-md-8 col-lg-9">*/
-/*             <textarea class="form-control" name="focusedInput" type="textarea" rows="4"></textarea>*/
+/*             <textarea class="form-control" name="additional" type="textarea" rows="4"></textarea>*/
 /*           </div>*/
 /*         </div>*/
 /* */
@@ -240,7 +249,8 @@ class __TwigTemplate_8bfae374475e18e59870d179862fdc3d6869c10b5e9feb3b74547301483
 /*             <input class="form-control btn-primary" type="submit">*/
 /*           </div>*/
 /*         </div>*/
-/*       </form>*/
+/*       </div>*/
+/*       {{ form_close() }}*/
 /*       <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>*/
 /*     </div>*/
 /*   </div>*/

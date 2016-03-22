@@ -14,6 +14,7 @@
 
 {% block content %}
 
+{{ info }}
 
 {% if specials %}
   <div class="container">
@@ -36,7 +37,6 @@
             </div>
             <div class="panel-footer">
               <a href="{{base_url()}}main/product/{{spec.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
-              <button type="button" class="btn btn-primary">В корзину</button>
             </div>
           </div>
         </div>
@@ -67,7 +67,6 @@
             </div>
             <div class="panel-footer">
               <a href="{{base_url()}}main/product/{{tp.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
-              <button type="button" class="btn btn-primary">В корзину</button>
             </div>
           </div>
         </div>
@@ -97,7 +96,6 @@
             </div>
             <div class="panel-footer">
               <a href="{{base_url()}}main/product/{{product.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>
-              <button type="button" class="btn btn-primary">В корзину</button>
             </div>
           </div>
         </div>

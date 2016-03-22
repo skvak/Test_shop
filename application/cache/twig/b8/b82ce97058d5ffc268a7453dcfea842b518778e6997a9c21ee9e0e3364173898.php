@@ -71,7 +71,9 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
         <div class=\"panel-heading\">";
         // line 22
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "name", array()), "html", null, true);
-        echo "</div>
+        echo " (Код товара: ";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "id", array()), "html", null, true);
+        echo ")</div>
         <div class=\"panel-body\">
           <div class=\"col-xs-6 col-sm-4 col-md-4 col-lg-4\">
             <img src=\"";
@@ -107,8 +109,32 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
         // line 39
         echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "price", array()), "html", null, true);
         echo " грн.</p>
-            <input type=\"number\" min=\"1\" value=\"1\"><br><br>
-            <button type=\"button\" class=\"btn btn-primary btn-block\">В корзину</button>
+            ";
+        // line 40
+        echo form_open("/main/add_to_cart");
+        echo "
+              ";
+        // line 41
+        echo form_hidden("url", (isset($context["current_url"]) ? $context["current_url"] : null));
+        echo "
+              ";
+        // line 42
+        echo form_hidden("id", $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "id", array()));
+        echo "
+              ";
+        // line 43
+        echo form_hidden("name", $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "name", array()));
+        echo "
+              ";
+        // line 44
+        echo form_hidden("price", $this->getAttribute($this->getAttribute((isset($context["product"]) ? $context["product"] : null), 0, array()), "price", array()));
+        echo "
+              <input type=\"number\" min=\"1\" value=\"1\" name=\"qty\"><br><br>
+              <input type=\"submit\" value=\"В корзину\" class=\"btn-primary btn-block\">
+            ";
+        // line 47
+        echo form_close();
+        echo "
           </div>
          
         </div>
@@ -122,10 +148,10 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 ";
     }
 
-    // line 54
+    // line 60
     public function block_footer($context, array $blocks = array())
     {
-        // line 55
+        // line 61
         $this->displayParentBlock("footer", $context, $blocks);
         echo "
 ";
@@ -143,7 +169,7 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 
     public function getDebugInfo()
     {
-        return array (  129 => 55,  126 => 54,  108 => 39,  101 => 35,  97 => 34,  93 => 33,  85 => 28,  79 => 25,  73 => 22,  66 => 18,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  155 => 61,  152 => 60,  136 => 47,  130 => 44,  126 => 43,  122 => 42,  118 => 41,  114 => 40,  110 => 39,  103 => 35,  99 => 34,  95 => 33,  87 => 28,  81 => 25,  73 => 22,  66 => 18,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main_template.twig' %}*/
@@ -167,7 +193,7 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 /*   <div class="row">*/
 /*     <div class="col-sm-12 col-md-12 col-lg-12">*/
 /*       <div class="panel panel-primary">*/
-/*         <div class="panel-heading">{{product.0.name}}</div>*/
+/*         <div class="panel-heading">{{product.0.name}} (Код товара: {{product.0.id}})</div>*/
 /*         <div class="panel-body">*/
 /*           <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">*/
 /*             <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="height: 200px; width: 200px;" alt="Image">*/
@@ -185,8 +211,14 @@ class __TwigTemplate_56ac9ea72391939840f945b3d8690d884f8c85244df4449c6acaebf1966
 /*           </div>*/
 /*           <div class="well well-lg hidden-xs col-sm-4 col-md-4 col-lg-4">*/
 /*             <p>Цена: {{product.0.price}} грн.</p>*/
-/*             <input type="number" min="1" value="1"><br><br>*/
-/*             <button type="button" class="btn btn-primary btn-block">В корзину</button>*/
+/*             {{ form_open ('/main/add_to_cart') }}*/
+/*               {{ form_hidden ('url', current_url ) }}*/
+/*               {{ form_hidden ('id', product.0.id ) }}*/
+/*               {{ form_hidden ('name', product.0.name ) }}*/
+/*               {{ form_hidden ('price', product.0.price ) }}*/
+/*               <input type="number" min="1" value="1" name="qty"><br><br>*/
+/*               <input type="submit" value="В корзину" class="btn-primary btn-block">*/
+/*             {{ form_close() }}*/
 /*           </div>*/
 /*          */
 /*         </div>*/

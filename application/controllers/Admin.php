@@ -10,9 +10,11 @@ class Admin extends CI_Controller {
     }
 
     //Start page
-    public function index()
+    public function index($data = '')
     {
         $data['title'] = 'Админ панель - Главная - Заказы';
+        $data['orders'] = $this->admin_model->get_orders();
+
         echo $this->twig->render('admin_main', $data);
     }
 
@@ -79,6 +81,28 @@ class Admin extends CI_Controller {
         {
             // item delete ok
             $data['info'] = 'Запись успешно удалена';
+            $this->{$table}($data);    
+        } 
+        
+        else 
+        {
+            // item delete failed, this should never happen
+            $data['info'] = 'Что-то пошло не так';
+            $this->{$table}($data); 
+        }
+    }
+
+    public function order($data = '')
+    {
+        $this->index($data);
+    }
+
+    public function change_status($table, $id)
+    {
+        if ($this->admin_model->change_status($id, $table)) 
+        {
+            // item delete ok
+            $data['info'] = 'Статус заказа успешно изменен';
             $this->{$table}($data);    
         } 
         

@@ -19,7 +19,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12">
       <div class="panel panel-primary">
-        <div class="panel-heading">{{product.0.name}}</div>
+        <div class="panel-heading">{{product.0.name}} (Код товара: {{product.0.id}})</div>
         <div class="panel-body">
           <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
             <img src="{{base_url()}}assets/img/posipaka.jpg" class="img-responsive" style="height: 200px; width: 200px;" alt="Image">
@@ -37,8 +37,14 @@
           </div>
           <div class="well well-lg hidden-xs col-sm-4 col-md-4 col-lg-4">
             <p>Цена: {{product.0.price}} грн.</p>
-            <input type="number" min="1" value="1"><br><br>
-            <button type="button" class="btn btn-primary btn-block">В корзину</button>
+            {{ form_open ('/main/add_to_cart') }}
+              {{ form_hidden ('url', current_url ) }}
+              {{ form_hidden ('id', product.0.id ) }}
+              {{ form_hidden ('name', product.0.name ) }}
+              {{ form_hidden ('price', product.0.price ) }}
+              <input type="number" min="1" value="1" name="qty"><br><br>
+              <input type="submit" value="В корзину" class="btn-primary btn-block">
+            {{ form_close() }}
           </div>
          
         </div>

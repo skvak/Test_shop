@@ -60,60 +60,63 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
     {
         // line 16
         echo "
+";
+        // line 17
+        echo twig_escape_filter($this->env, (isset($context["info"]) ? $context["info"] : null), "html", null, true);
+        echo "
 
 ";
-        // line 18
+        // line 19
         if ((isset($context["specials"]) ? $context["specials"] : null)) {
-            // line 19
+            // line 20
             echo "  <div class=\"container\">
     <h3>Специальные предложения:</h3>    
       <div class=\"row\">
       ";
-            // line 22
+            // line 23
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["specials"]) ? $context["specials"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["spec"]) {
-                // line 23
+                // line 24
                 echo "        <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3\">
           <div class=\"panel panel-primary\">
             <div class=\"panel-heading\">";
-                // line 25
+                // line 26
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "name", array()), "html", null, true);
                 echo "</div>
             <div class=\"panel-body\">
               <div style=\"width:30%; float:left\">
                 <img src=\"";
-                // line 28
+                // line 29
                 echo twig_escape_filter($this->env, base_url(), "html", null, true);
                 echo "assets/img/posipaka.jpg\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\">
               </div>
               <div style=\"width:70%; margin-left:35%; font-size: 13px;\">
                 <p>Код товара: ";
-                // line 31
+                // line 32
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "id", array()), "html", null, true);
                 echo "</p>
                 <p>Описание: ";
-                // line 32
+                // line 33
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "description", array()), "html", null, true);
                 echo "</p>
                 <p>Дополнительно: ";
-                // line 33
+                // line 34
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "additional", array()), "html", null, true);
                 echo "</p>
                 <p>Цена: ";
-                // line 34
+                // line 35
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "price", array()), "html", null, true);
                 echo "</p>
               </div>
             </div>
             <div class=\"panel-footer\">
               <a href=\"";
-                // line 38
+                // line 39
                 echo twig_escape_filter($this->env, base_url(), "html", null, true);
                 echo "main/product/";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["spec"], "id", array()), "html", null, true);
                 echo "\" class=\"btn btn-primary\" role=\"button\" type=\"button\">Подробнее</a>
-              <button type=\"button\" class=\"btn btn-primary\">В корзину</button>
             </div>
           </div>
         </div>
@@ -183,7 +186,6 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
                 echo "main/product/";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["tp"], "id", array()), "html", null, true);
                 echo "\" class=\"btn btn-primary\" role=\"button\" type=\"button\">Подробнее</a>
-              <button type=\"button\" class=\"btn btn-primary\">В корзину</button>
             </div>
           </div>
         </div>
@@ -192,70 +194,69 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tp'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 74
+            // line 73
             echo "  
       </div>
   </div>
 ";
         }
-        // line 78
+        // line 77
         echo "
 ";
-        // line 79
+        // line 78
         if ((isset($context["goods"]) ? $context["goods"] : null)) {
-            // line 80
+            // line 79
             echo "  <div class=\"container\">
     <h3>";
-            // line 81
+            // line 80
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["goods"]) ? $context["goods"] : null), 0, array()), "cat_name", array()), "html", null, true);
             echo ":</h3>    
       <div class=\"row\">
       ";
-            // line 83
+            // line 82
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["goods"]) ? $context["goods"] : null));
             foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-                // line 84
+                // line 83
                 echo "        <div class=\"col-xs-12 col-sm-6 col-md-4 col-lg-3\">
           <div class=\"panel panel-primary\">
             <div class=\"panel-heading\">";
-                // line 86
+                // line 85
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "name", array()), "html", null, true);
                 echo "</div>
             <div class=\"panel-body\">
               <div style=\"width:30%; float:left\">
                 <img src=\"";
-                // line 89
+                // line 88
                 echo twig_escape_filter($this->env, base_url(), "html", null, true);
                 echo "assets/img/posipaka.jpg\" class=\"img-responsive\" style=\"width:100%\" alt=\"Image\">
               </div>
               <div style=\"width:70%; margin-left:35%; font-size: 13px;\">
                 <p>Код товара: ";
-                // line 92
+                // line 91
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "id", array()), "html", null, true);
                 echo "</p>
                 <p>Описание: ";
-                // line 93
+                // line 92
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "description", array()), "html", null, true);
                 echo "</p>
                 <p>Дополнительно: ";
-                // line 94
+                // line 93
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "additional", array()), "html", null, true);
                 echo "</p>
                 <p>Цена: ";
-                // line 95
+                // line 94
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "price", array()), "html", null, true);
                 echo "</p>
               </div>
             </div>
             <div class=\"panel-footer\">
               <a href=\"";
-                // line 99
+                // line 98
                 echo twig_escape_filter($this->env, base_url(), "html", null, true);
                 echo "main/product/";
                 echo twig_escape_filter($this->env, $this->getAttribute($context["product"], "id", array()), "html", null, true);
                 echo "\" class=\"btn btn-primary\" role=\"button\" type=\"button\">Подробнее</a>
-              <button type=\"button\" class=\"btn btn-primary\">В корзину</button>
             </div>
           </div>
         </div>
@@ -264,23 +265,23 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 104
+            // line 102
             echo "  
       </div>
   </div>
 ";
         }
-        // line 108
+        // line 106
         echo "
 <br><br>
 
 ";
     }
 
-    // line 113
+    // line 111
     public function block_footer($context, array $blocks = array())
     {
-        // line 114
+        // line 112
         $this->displayParentBlock("footer", $context, $blocks);
         echo "
 ";
@@ -298,7 +299,7 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
 
     public function getDebugInfo()
     {
-        return array (  284 => 114,  281 => 113,  274 => 108,  268 => 104,  254 => 99,  247 => 95,  243 => 94,  239 => 93,  235 => 92,  229 => 89,  223 => 86,  219 => 84,  215 => 83,  210 => 81,  207 => 80,  205 => 79,  202 => 78,  196 => 74,  182 => 69,  175 => 65,  171 => 64,  167 => 63,  163 => 62,  157 => 59,  151 => 56,  147 => 54,  143 => 53,  138 => 50,  136 => 49,  133 => 48,  126 => 43,  112 => 38,  105 => 34,  101 => 33,  97 => 32,  93 => 31,  87 => 28,  81 => 25,  77 => 23,  73 => 22,  68 => 19,  66 => 18,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
+        return array (  285 => 112,  282 => 111,  275 => 106,  269 => 102,  256 => 98,  249 => 94,  245 => 93,  241 => 92,  237 => 91,  231 => 88,  225 => 85,  221 => 83,  217 => 82,  212 => 80,  209 => 79,  207 => 78,  204 => 77,  198 => 73,  185 => 69,  178 => 65,  174 => 64,  170 => 63,  166 => 62,  160 => 59,  154 => 56,  150 => 54,  146 => 53,  141 => 50,  139 => 49,  136 => 48,  129 => 43,  116 => 39,  109 => 35,  105 => 34,  101 => 33,  97 => 32,  91 => 29,  85 => 26,  81 => 24,  77 => 23,  72 => 20,  70 => 19,  65 => 17,  62 => 16,  59 => 15,  53 => 12,  50 => 11,  44 => 8,  41 => 7,  35 => 4,  32 => 3,  11 => 1,);
     }
 }
 /* {% extends 'main_template.twig' %}*/
@@ -317,6 +318,7 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
 /* */
 /* {% block content %}*/
 /* */
+/* {{ info }}*/
 /* */
 /* {% if specials %}*/
 /*   <div class="container">*/
@@ -339,7 +341,6 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
 /*             </div>*/
 /*             <div class="panel-footer">*/
 /*               <a href="{{base_url()}}main/product/{{spec.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>*/
-/*               <button type="button" class="btn btn-primary">В корзину</button>*/
 /*             </div>*/
 /*           </div>*/
 /*         </div>*/
@@ -370,7 +371,6 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
 /*             </div>*/
 /*             <div class="panel-footer">*/
 /*               <a href="{{base_url()}}main/product/{{tp.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>*/
-/*               <button type="button" class="btn btn-primary">В корзину</button>*/
 /*             </div>*/
 /*           </div>*/
 /*         </div>*/
@@ -400,7 +400,6 @@ class __TwigTemplate_f3d56dc06bff6a88eb34d0cf3b06a703f8e5019d6557def847993bd578a
 /*             </div>*/
 /*             <div class="panel-footer">*/
 /*               <a href="{{base_url()}}main/product/{{product.id}}" class="btn btn-primary" role="button" type="button">Подробнее</a>*/
-/*               <button type="button" class="btn btn-primary">В корзину</button>*/
 /*             </div>*/
 /*           </div>*/
 /*         </div>*/

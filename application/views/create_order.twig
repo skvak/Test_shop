@@ -17,50 +17,51 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
-      <form class="form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6" role="form" autocomplete>
+      {{ form_open ('/main/save_order') }}
+      <div class="form-horizontal col-xs-10 col-sm-8 col-md-6 col-lg-6" role="form" autocomplete>
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Имя</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <input class="form-control" name="focusedInput" type="text" required autofocus>
+            <input class="form-control" name="name" type="text" required autofocus>
           </div>
         </div>
   
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Фамилия</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <input class="form-control" name="focusedInput" type="text" required>
+            <input class="form-control" name="surname" type="text" required>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">E-mail</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <input class="form-control" name="focusedInput" type="email" required>
+            <input class="form-control" name="email" type="email" required>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Телефон</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <input class="form-control" name="focusedInput" type="tel" required>
+            <input class="form-control" name="tel" type="tel" required>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Адрес доставки</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <input class="form-control" name="focusedInput" type="text" required>
+            <input class="form-control" name="address" type="text" required>
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Форма оплаты</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <select class="form-control" name="focusedInput" type="select" required>
+            <select class="form-control" name="pay_meth" type="select" required>
               <option value="1" disabled="" selected="selected"></option>
-              <option value="nal">Наличные</option>
-              <option value="beznal">Банковский перевод</option>
-              <option value="pb">Карта ПриватБанк</option>
+              <option value="Наличные">Наличные</option>
+              <option value="Безнал">Банковский перевод</option>
+              <option value="Карта ПБ">Карта ПриватБанк</option>
             </select>
           </div>
         </div>
@@ -68,7 +69,7 @@
         <div class="form-group">
           <label class="col-sm-2 col-md-4 col-lg-3 control-label">Дополнительно</label>
           <div class="col-sm-10 col-md-8 col-lg-9">
-            <textarea class="form-control" name="focusedInput" type="textarea" rows="4"></textarea>
+            <textarea class="form-control" name="additional" type="textarea" rows="4"></textarea>
           </div>
         </div>
 
@@ -78,7 +79,8 @@
             <input class="form-control btn-primary" type="submit">
           </div>
         </div>
-      </form>
+      </div>
+      {{ form_close() }}
       <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
     </div>
   </div>

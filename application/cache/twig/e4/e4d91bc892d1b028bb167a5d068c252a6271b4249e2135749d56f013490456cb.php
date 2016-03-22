@@ -93,10 +93,10 @@ class __TwigTemplate_da693e8d6a345699c733d9cccbb27752c8d962477cb614b2e5ab2cfe949
       padding-bottom: 0;
     }
     .btn {
-      margin-left: 7%;
+      margin-left: 32%;
     }
     footer {
-    background-color: #f2f2f2;
+      background-color: #f2f2f2;
       padding: 25px;
     }
   </style>
@@ -164,7 +164,11 @@ class __TwigTemplate_da693e8d6a345699c733d9cccbb27752c8d962477cb614b2e5ab2cfe949
         <li><a href=\"";
         // line 68
         echo twig_escape_filter($this->env, base_url(), "html", null, true);
-        echo "main/cart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Корзина  <span class=\"glyphicon glyphicon-menu-right\"></span>  <span class=\"label label-default\">5 товаров на сумму: 7999</span></a></li>
+        echo "main/cart\"><span class=\"glyphicon glyphicon-shopping-cart\"></span> Корзина  <span class=\"glyphicon glyphicon-menu-right\"></span>  <span class=\"label label-default\">Товаров ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["cart_summary"]) ? $context["cart_summary"] : null), "amt", array()), "html", null, true);
+        echo " на сумму: ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["cart_summary"]) ? $context["cart_summary"] : null), "sum", array()), "html", null, true);
+        echo "</span></a></li>
       </ul>
     </div>
   </div>
@@ -197,7 +201,7 @@ class __TwigTemplate_da693e8d6a345699c733d9cccbb27752c8d962477cb614b2e5ab2cfe949
 
     public function getDebugInfo()
     {
-        return array (  185 => 80,  182 => 79,  177 => 76,  166 => 68,  162 => 66,  149 => 64,  145 => 63,  141 => 62,  127 => 50,  124 => 49,  112 => 39,  109 => 38,  83 => 13,  79 => 12,  75 => 11,  68 => 8,  65 => 7,  62 => 6,  55 => 86,  53 => 79,  50 => 78,  48 => 76,  45 => 75,  43 => 49,  40 => 48,  38 => 38,  33 => 35,  31 => 6,  24 => 1,);
+        return array (  189 => 80,  186 => 79,  181 => 76,  166 => 68,  162 => 66,  149 => 64,  145 => 63,  141 => 62,  127 => 50,  124 => 49,  112 => 39,  109 => 38,  83 => 13,  79 => 12,  75 => 11,  68 => 8,  65 => 7,  62 => 6,  55 => 86,  53 => 79,  50 => 78,  48 => 76,  45 => 75,  43 => 49,  40 => 48,  38 => 38,  33 => 35,  31 => 6,  24 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -224,10 +228,10 @@ class __TwigTemplate_da693e8d6a345699c733d9cccbb27752c8d962477cb614b2e5ab2cfe949
 /*       padding-bottom: 0;*/
 /*     }*/
 /*     .btn {*/
-/*       margin-left: 7%;*/
+/*       margin-left: 32%;*/
 /*     }*/
 /*     footer {*/
-/*     background-color: #f2f2f2;*/
+/*       background-color: #f2f2f2;*/
 /*       padding: 25px;*/
 /*     }*/
 /*   </style>*/
@@ -267,7 +271,7 @@ class __TwigTemplate_da693e8d6a345699c733d9cccbb27752c8d962477cb614b2e5ab2cfe949
 /*         {% endfor %}*/
 /*       </ul>*/
 /*       <ul class="nav navbar-nav navbar-right">*/
-/*         <li><a href="{{base_url()}}main/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина  <span class="glyphicon glyphicon-menu-right"></span>  <span class="label label-default">5 товаров на сумму: 7999</span></a></li>*/
+/*         <li><a href="{{base_url()}}main/cart"><span class="glyphicon glyphicon-shopping-cart"></span> Корзина  <span class="glyphicon glyphicon-menu-right"></span>  <span class="label label-default">Товаров {{ cart_summary.amt }} на сумму: {{ cart_summary.sum }}</span></a></li>*/
 /*       </ul>*/
 /*     </div>*/
 /*   </div>*/
