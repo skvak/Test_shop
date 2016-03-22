@@ -6,3 +6,6 @@
 */cache/!.htaccess
 /sessions/*
 /application/cache/twig
+trigger.odt
+larek.sublime-project
+larek.sublime-workspace
