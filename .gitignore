@@ -5,7 +5,6 @@
 */cache/!index.html
 */cache/!.htaccess
 /sessions/*
-/application/cache/*
 trigger.odt
 larek.sublime-project
 larek.sublime-workspace
