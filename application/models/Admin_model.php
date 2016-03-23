@@ -61,7 +61,6 @@ class Admin_model extends CI_Model {
 
 	public function delete_data($id, $table) //удаляем данные из таблицы
 	{
-		//delete data
 		$this->db->from($table);
 		$this->db->where('id', $id);
 		$query = $this->db->delete();

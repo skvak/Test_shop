@@ -80,14 +80,12 @@ class Admin extends CI_Controller {
     {
         if ($this->admin_model->delete_data($id, $table)) 
         {
-            // item delete ok
             $data['info'] = 'Запись успешно удалена';
             $this->{$table}($data);    
         } 
         
         else 
         {
-            // item delete failed, this should never happen
             $data['info'] = 'Что-то пошло не так';
             $this->{$table}($data); 
         }

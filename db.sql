@@ -29,7 +29,7 @@ CREATE TABLE `categories` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `cat_name_UNIQUE` (`cat_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (2,'Смартфоны','Смартфоны, телефоны, аксессуары, карты памяти'),(3,'Планшеты','Планшеты, зарядки к планшетам, чехлы, защитны'),(4,'Ноутбуки','Ноутбуки, сумки, рюкзаки, зарядки, наклейки, ');
+INSERT INTO `categories` VALUES (2,'Смартфоны','Смартфоны, телефоны, аксессуары, карты памяти'),(3,'Планшеты','Планшеты, зарядки к планшетам, чехлы, пленки'),(4,'Ноутбуки','Ноутбуки, сумки, рюкзаки, зарядки, аккумы');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -50,7 +50,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger delete_cat before delete on categories
+/*!50003 CREATE*/ /*!50003 trigger delete_cat before delete on categories
 for each row begin
 delete from goods where goods.cat_id=OLD.id;
 end */;;
@@ -80,7 +80,7 @@ CREATE TABLE `customers` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `tel_UNIQUE` (`tel`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `goods` (
   `cat_id` int(11) NOT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
-  `price` int(6) NOT NULL,
+  `price` decimal(6,2) NOT NULL,
   `qty` int(4) NOT NULL,
   `additional` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
   `photo` varchar(45) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `goods` (
   `sold` int(4) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `goods` (
 
 LOCK TABLES `goods` WRITE;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
-INSERT INTO `goods` VALUES (2,3,'Texet 1048','Диагональ 10\", 16 ядер и 4Гб ОЗУ',4555,12,'Гарантия 12 лет','/assets/img/texet1048',0,1),(3,3,'Samsung Tab 10','Диагональ: 10\", 30 ядер и 24Гб ОЗУ',7999,5,'Гарантия 10 лет','/assets/img/samsungtab10',0,4),(4,3,'Asus HD 10','Диагональ: 10\", 30 ядер и 24Гб ОЗУ',8500,3,'Гарантия 100 лет','/assets/img/asushd10',0,1),(5,3,'Apple 9\"','Диагональ: 9\", 300 ядер и 240Гб ОЗУ',10999,6,'Гарантия 1000 лет','/assets/img/apple9',1,2),(6,2,'Lenovo P70','Диагональ 5\", 4 ядер и 4Гб ОЗУ',3599,3,'Гарантия 1 год','/assets/img/lenovop70',0,1),(7,2,'Samsung 8262','Диагональ 4\", 4 ядер и 4Гб ОЗУ',1899,6,'Гарантия 1 год','/assets/img/sams8262',1,8),(8,2,'Nexus HD','Диагональ 5\", 8 ядер и 8Гб ОЗУ',4999,7,'Гарантия 10 лет','/assets/img/nexushd',0,6),(9,2,'Apple Iphone 9','Диагональ 5\", 28 ядер и 28Гб ОЗУ',19999,2,'Гарантия 1000 лет','/assets/img/appleiphone9',0,0),(10,4,'Asus Zen Book','Диагональ 12\", 8 ядер и 12Гб ОЗУ',12999,12,'Металлический корпус','/assets/img/asuszenbook',1,9),(11,4,'Lenovo P550','Диагональ 15,6\", 4 ядер и 4Гб ОЗУ',7888,5,'Гарантия 2 года','/assets/img/lenovop550',0,5),(12,4,'Sony W7','Диагональ 11\", 8 ядер и 12Гб ОЗУ',14999,2,'Гарантия 5 лет','/assets/img/sonyw7',0,2),(13,4,'HP ProBook 4540s','Диагональ 15,6\", 4 ядер и 4Гб ОЗУ',7999,18,'Гарантия 3 года','/assets/img/hpprobook4540s',0,10),(16,2,'Acer HD','Диагональ 6\", 6 ядер и 8Гб ОЗУ',3999,8,'Гарантия 1 месяц','/assets/img/acerhd',1,3);
+INSERT INTO `goods` VALUES (2,3,'Texet 1048','Диагональ 10\", 16 ядер и 4Гб ОЗУ',4555.00,12,'Гарантия 12 лет','/assets/img/texet1048',0,1),(3,3,'Samsung Tab 10','Диагональ: 10\", 30 ядер и 24Гб ОЗУ',7999.00,5,'Гарантия 10 лет','/assets/img/samsungtab10',0,4),(4,3,'Asus HD 10','Диагональ: 10\", 30 ядер и 24Гб ОЗУ',8500.00,3,'Гарантия 100 лет','/assets/img/asushd10',0,1),(5,3,'Apple 9','Диагональ: 9\", 300 ядер и 240Гб ОЗУ',9999.99,6,'Гарантия 1000 лет','/assets/img/apple9',1,2),(6,2,'Lenovo P70','Диагональ 5\", 4 ядер и 4Гб ОЗУ',3599.00,3,'Гарантия 1 год','/assets/img/lenovop70',0,1),(7,2,'Samsung 8262','Диагональ 4\", 4 ядер и 4Гб ОЗУ',1899.00,6,'Гарантия 1 год','/assets/img/sams8262',1,8),(8,2,'Nexus HD','Диагональ 5\", 8 ядер и 8Гб ОЗУ',4999.00,7,'Гарантия 10 лет','/assets/img/nexushd',0,6),(9,2,'Apple Iphone 9','Диагональ 5\", 28 ядер и 28Гб ОЗУ',9999.99,2,'Гарантия 1000 лет','/assets/img/appleiphone9',0,0),(10,4,'Asus Zen Book','Диагональ 12\", 8 ядер и 12Гб ОЗУ',9999.99,12,'Металлический корпус','/assets/img/asuszenbook',1,9),(11,4,'Lenovo P550','Диагональ 15,6\", 4 ядер и 4Гб ОЗУ',7888.00,5,'Гарантия 2 года','/assets/img/lenovop550',0,5),(12,4,'Sony W7','Диагональ 11\", 8 ядер и 12Гб ОЗУ',9999.99,2,'Гарантия 5 лет','/assets/img/sonyw7',0,2),(13,4,'HP ProBook 4540s','Диагональ 15,6\", 4 ядер и 4Гб ОЗУ',7999.00,18,'Гарантия 3 года','/assets/img/hpprobook4540s',0,10),(16,2,'Acer HD','Диагональ 6\", 6 ядер и 8Гб ОЗУ',3999.00,8,'Гарантия 1 месяц','/assets/img/acerhd',1,3);
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +140,7 @@ CREATE TABLE `order` (
   `status` int(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +160,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger `sold_counter` AFTER UPDATE ON `order` for each row begin declare done INT DEFAULT FALSE; declare ids INT; declare n INT; declare cur CURSOR FOR SELECT `order_info`.`product_id`, `order_info`.`qty` FROM `order_info` WHERE `order_info`.`order_id` = NEW.`id`; declare CONTINUE HANDLER FOR NOT FOUND SET done = TRUE; OPEN cur; ins_loop: LOOP FETCH cur INTO ids, n; IF done THEN LEAVE ins_loop; END IF; UPDATE `goods` SET `goods`.`sold`=`goods`.`sold`+`n`, `goods`.`qty`=`goods`.`qty`-`n` WHERE `goods`.`id`=`ids`; END LOOP; CLOSE cur; END */;;
+/*!50003 CREATE*/ /*!50003 trigger `sold_counter` AFTER UPDATE ON `order` for each row begin declare done INT DEFAULT FALSE; declare ids INT; declare n INT; declare cur CURSOR FOR SELECT `order_info`.`product_id`, `order_info`.`qty` FROM `order_info` WHERE `order_info`.`order_id` = NEW.`id`; declare CONTINUE HANDLER FOR NOT FOUND SET done = TRUE; OPEN cur; ins_loop: LOOP FETCH cur INTO ids, n; IF done THEN LEAVE ins_loop; END IF; UPDATE `goods` SET `goods`.`sold`=`goods`.`sold`+`n`, `goods`.`qty`=`goods`.`qty`-`n` WHERE `goods`.`id`=`ids`; END LOOP; CLOSE cur; END */;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
@@ -175,7 +175,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger `delete_order` before delete on `order`
+/*!50003 CREATE*/ /*!50003 trigger `delete_order` before delete on `order`
 for each row
 begin
 delete from `order_info` where `order_id` = OLD.id;
@@ -202,7 +202,7 @@ CREATE TABLE `order_info` (
   `price` float NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -223,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-22 15:47:58
+-- Dump completed on 2016-03-23 23:43:30

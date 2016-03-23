@@ -6,7 +6,7 @@ class Shop extends CI_Controller {
 	public function index()
     {
         $data['title'] = 'Ларек - Корзина';
-        $this->load->model('news_model');
+        $this->load->model('');
         $this->load->library('twig');
 
         echo $this->twig->render('shop_view', $data);

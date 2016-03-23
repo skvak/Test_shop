@@ -96,7 +96,7 @@ class Main extends CI_Controller {
 
     public function remove_from_cart($rowid) //удаление товара из корзины
     {
-        if ($rowid==="all")
+        if ($rowid === "all")
         {
             $this->cart->destroy();
         }
