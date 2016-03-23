@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
     {
         $data['title'] = 'Админ панель - Категории';
         $data['table'] = 'categories';
+        unset($_POST);
 
         $data['categories'] = $this->admin_model->get($data['table']);
 
@@ -45,9 +46,10 @@ class Admin extends CI_Controller {
     public function goods($data = '') //просмотр и управление товарами
     {
         $data['title'] = 'Админ панель - Товары';
+        $data['table'] = 'goods';
         $data['categories'] = $this->admin_model->get('categories');
         $data['goods'] = $this->admin_model->get_goods();
-        $data['table'] = 'goods';
+        unset($_POST);
 
         echo $this->twig->render('admin_goods', $data);
     }

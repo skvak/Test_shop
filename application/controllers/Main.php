@@ -44,8 +44,22 @@ class Main extends CI_Controller {
         $data['current_url'] = current_url();
         $data['categories'] = $this->admin_model->get('categories');
         $data['product'] = $this->admin_model->get_goods($id);
+        unset($_POST);
 
         $cart = $this->cart->contents();
+        if ($cart) 
+        {   
+            $sold = 0;
+            foreach ($cart as $product_in_cart) 
+            {
+                if ($product_in_cart['id'] === $id) 
+                {
+                    $sold = $sold + $product_in_cart['qty'];
+                }
+            }
+            $data['sold'] = $sold;
+        }
+        
         $data['cart_summary'] = $this->_cart_summary($cart);
 
         echo $this->twig->render('product', $data);
@@ -67,7 +81,7 @@ class Main extends CI_Controller {
     {
         $data['title'] = 'Ларёк - Корзина';
         $data['categories'] = $this->admin_model->get('categories');
-        $id = $this->input->post('id');
+        $url = $this->input->post('url');
 
         $insert_data = array(
             'id' => $this->input->post('id'),
@@ -77,7 +91,7 @@ class Main extends CI_Controller {
         
         $this->cart->insert($insert_data);
 
-        $this->product($id);
+        redirect($url);
     }
 
     public function remove_from_cart($rowid) //удаление товара из корзины
